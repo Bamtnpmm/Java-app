@@ -1,0 +1,60 @@
+{
+  "categories": ["export"],
+  "description": {"text": "java-app.th.app.ruk-com.cloud"},
+  "engine": "",
+  "name": 1.624848597274E12,
+  "nodes": [
+    {
+      "cloudlets": 6,
+      "diskLimit": "100G",
+      "docker": {
+        "cmd": "/usr/lib/systemd/systemd",
+        "env": {
+          "BACKEND_OPTIONS": "check cookie",
+          "BACKEND_PORT": "80",
+          "DOCKER_EXPOSED_PORT": "21,22,25,443,80",
+          "HAPROXY_VERSION": "2.4.0",
+          "MASTER_HOST": "node15041",
+          "MASTER_ID": "15041",
+          "MASTER_IP": "10.103.2.13",
+          "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TCP_BALANCING": "TRUE"
+        }
+      },
+      "nodeGroup": "bl",
+      "nodeType": "haproxy",
+      "tag": "2.4.0"
+    },
+    {
+      "cloudlets": 6,
+      "count": 2,
+      "diskLimit": "100G",
+      "docker": {
+        "cmd": "/usr/lib/systemd/systemd",
+        "env": {
+          "DOCKER_EXPOSED_PORT": "22,443,8743,7979,80,8009,8080,21,25,4000,5000",
+          "JAVA_HOME": "/usr/java/latest/",
+          "JAVA_OPTS_CONFFILE": "/opt/tomcat/conf/variables.conf",
+          "JAVA_VERSION": "17.ea-b21",
+          "JELASTIC_EXPOSE": "0",
+          "MASTER_HOST": "node15042",
+          "MASTER_ID": "15042",
+          "MASTER_IP": "10.103.2.144",
+          "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "STACK_PATH": "/opt/tomcat",
+          "STACK_USER": "tomcat",
+          "TOMCAT_SHORT_VERSION": "10",
+          "TOMCAT_VERSION": "10.0.5",
+          "VERT_SCALING": "true",
+          "WEBROOT": "/opt/tomcat/webapps/"
+        },
+        "volumes": ["/opt/tomcat/webapps"]
+      },
+      "nodeGroup": "cp",
+      "nodeType": "tomcat",
+      "tag": "10.0.5-openjdk-17.ea-b21"
+    }
+  ],
+  "type": "install",
+  "version": "6.0.3"
+}
